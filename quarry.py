@@ -5,7 +5,7 @@ from tabulate import tabulate
 """SQL database handling module"""
 
 try:
-    conn_string = "host='localhost' dbname='freka' user='freka' password='N4r4ncss4rg4'"
+    conn_string = "host='localhost' dbname='freka' user='freka' password='************'"
 except:
     print("Unable to connect to the DB")
 
