@@ -60,5 +60,17 @@ def contacts():
     return render_template('contacts.html', table_headers=table_headers, contacts_data=contacts_data)
 
 
+@app.route('/applicants')
+def applicants():
+    table_headers = [
+                    'First name',
+                    'Application code',
+                    'Creation date'
+                    ]
+    query = applicants_query
+    applicants_data = query_manager(query, return_data='all_data')
+    return render_template('applicants.html', table_headers=table_headers, applicants_data=applicants_data)
+
+
 if __name__ == '__main__':
     app.run(debug=True)
