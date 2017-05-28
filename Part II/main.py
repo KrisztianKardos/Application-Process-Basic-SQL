@@ -37,5 +37,16 @@ def all_school():
     return render_template('all-school.html', table_headers=table_headers, all_school_data=all_school_data)
 
 
+@app.route('/mentors-by-country')
+def mentors_by_country():
+    table_headers = [
+                    'Country',
+                    'Count'
+                    ]
+    query = mentors_by_country_query
+    mentors_by_country_data = query_manager(query, return_data='all_data')
+    return render_template('mentors-by-country.html', table_headers=table_headers, mentors_by_country_data=mentors_by_country_data)
+
+
 if __name__ == '__main__':
     app.run(debug=True)
