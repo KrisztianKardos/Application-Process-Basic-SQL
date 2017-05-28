@@ -19,3 +19,9 @@ mentors_by_country_query = """SELECT schools.country,\
                             LEFT JOIN schools\
                             ON mentors.city = schools.city\
                             GROUP BY country;"""
+
+contacts_query = """SELECT schools.name, mentors.first_name, mentors.last_name\
+                    FROM schools\
+                    INNER JOIN mentors\
+                    ON mentors.id = schools.contact_person\
+                    ORDER BY schools.name ASC;"""

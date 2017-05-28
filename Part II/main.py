@@ -48,5 +48,17 @@ def mentors_by_country():
     return render_template('mentors-by-country.html', table_headers=table_headers, mentors_by_country_data=mentors_by_country_data)
 
 
+@app.route('/contacts')
+def contacts():
+    table_headers = [
+                    'School name',
+                    'First name',
+                    'Last name'
+                    ]
+    query = contacts_query
+    contacts_data = query_manager(query, return_data='all_data')
+    return render_template('contacts.html', table_headers=table_headers, contacts_data=contacts_data)
+
+
 if __name__ == '__main__':
     app.run(debug=True)
