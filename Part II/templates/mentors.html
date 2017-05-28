@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+
+<html>
+    <link rel="stylesheet" href="/static/new_form_style.css">
+    <head>
+        <link rel="stylesheet" type="text/css"
+                href="https://fonts.googleapis.com/css?family=Raleway">
+        <title> Mentors </title>
+    </head>
+    <div class="home-button">
+        <a href="/">
+            <button class="button" type="button"><span>Home</span></button>
+        </a>
+    <body>
+        <div class="table-title">
+            <h1>Mentors</h1>
+        </div>
+        <table id="table" class="table">
+            <tr>
+                {% for item in table_headers %}
+                    <th class="table-header">{{ item }}</th>
+                {% endfor %}
+            </tr>
+            {% for row in view_questions %}
+                <tr>
