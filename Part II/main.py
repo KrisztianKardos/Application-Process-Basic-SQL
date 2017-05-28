@@ -72,5 +72,18 @@ def applicants():
     return render_template('applicants.html', table_headers=table_headers, applicants_data=applicants_data)
 
 
+@app.route('/applicants-and-mentors')
+def applicants_and_mentors():
+    table_headers = [
+                    'First name',
+                    'Application code',
+                    'Mentor First name',
+                    'Mentor Last name'
+                    ]
+    query = applicants_and_mentors_query
+    applicants_and_mentors_data = query_manager(query, return_data='all_data')
+    return render_template('applicants-and-mentors.html', table_headers=table_headers, applicants_and_mentors_data=applicants_and_mentors_data)
+
+
 if __name__ == '__main__':
     app.run(debug=True)
