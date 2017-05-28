@@ -1,6 +1,9 @@
 from flask import Flask, render_template, redirect, request
 import psycopg2
 from queries import *
+from database_manager import *
+
+app = Flask(__name__)
 
 
 @app.route('/')
@@ -18,4 +21,8 @@ def mentors():
                     ]
     query = mentors_query
     mentors_data = query_manager(query, return_data='all_data')
-    return render_template('mentors.html')
+    return render_template('mentors.html', table_headers=table_headers, mentors_data=mentors_data)
+
+
+if __name__ == '__main__':
+    app.run(debug=True)
